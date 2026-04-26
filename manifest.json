@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "TikTok Creator Suite",
+  "version": "3.0.0",
+  "description": "สร้าง Script รีวิว + ปักตระกร้า TikTok อัตโนมัติในที่เดียว",
+
+  "action": {
+    "default_title": "TikTok Creator Suite"
+  },
+
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "sidePanel",
+    "downloads"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["sidepanel.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
